@@ -400,7 +400,7 @@ pipeline:
                         name: Continuous Verification
                         identifier: Continuous_Verification
                         spec:
-                          isMultiServicesOrEnvs: true
+                          isMultiServicesOrEnvs: false
                           type: Canary
                           monitoredService:
                             type: Default
@@ -426,6 +426,9 @@ pipeline:
                                   onTimeout:
                                     action:
                                       type: Ignore
+                        when:
+                          stageStatus: Success
+                          condition: "false"
                     - step:
                         type: K8sCanaryDelete
                         name: Canary Delete
