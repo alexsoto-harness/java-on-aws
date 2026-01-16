@@ -5,3 +5,21 @@ databaseChangeLog:
   - include:
       file: changesets/002-insert-sample-unicorn.yaml
       relativeToChangelogFile: true
+  - changeSet:
+      id: 20240522-add-caller-colour-to-unicorn
+      author: Alex Soto
+      comment: Add caller colour column to unicorn table
+      labels: schema-change
+      changes:
+        - addColumn:
+            tableName: unicorn
+            columns:
+              - column:
+                  name: caller colour
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+      rollback:
+        - dropColumn:
+            tableName: unicorn
+            columnName: caller colour
