@@ -20,6 +20,12 @@ pipeline:
       required: false
       default: "true"
       value: <+input>.allowedValues(true,false)
+    - name: replicas
+      type: Number
+      description: Number of pod replicas for the deployment
+      required: false
+      default: 3
+      value: <+input>
   properties:
     ci:
       codebase:

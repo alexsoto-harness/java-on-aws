@@ -4,7 +4,7 @@
 # Application settings
 app:
   name: unicorn-store-spring
-  replicas: 3
+  replicas: <+pipeline.variables.replicas>
 
 # Container image settings
 image:
